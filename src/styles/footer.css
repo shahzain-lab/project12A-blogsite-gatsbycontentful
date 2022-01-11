@@ -1,0 +1,36 @@
+.footer--container {
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+  min-height: 100px;
+  background-color: #085aac;
+  display: flex;
+}
+
+.footer--v1 {
+  border-right: 6px solid #7b1fa2;
+  min-height: 100px;
+  width: 150px;
+  padding: 5px;
+  color: aliceblue;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.footer--v1_h2 {
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  margin: 10px 4px;
+}
+
+.footer--links {
+  display: flex;
+  flex-direction: column;
+  margin-left: 5px;
+  color: #3b3b3b;
+  line-height: 2rem;
+}
+
+.footer--links a {
+  text-decoration: none;
+  list-style: none;
+}
