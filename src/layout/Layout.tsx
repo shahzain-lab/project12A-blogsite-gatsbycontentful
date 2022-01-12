@@ -8,7 +8,7 @@ type Props = {
 
 const Layout: React.FC<Props> = ({ children }) => {
     return (
-        <div>
+        <div style={{ position: 'relative', minHeight: '100vh' }}>
             <Appbar />
             {children}
             <Footer />

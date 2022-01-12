@@ -1,6 +1,7 @@
 import React from 'react'
 import '../styles/header.css';
 import Button from '@mui/material/Button';
+import { Link } from 'gatsby';
 
 
 const Header = () => {
@@ -11,7 +12,7 @@ const Header = () => {
                     <h1>The gatsby static blog site</h1>
                     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fuga, cum?</p>
                     <div className={'header--content_btns'}>
-                        <Button variant="contained">see blogs</Button>
+                        <Link to='/blogs'><Button variant="contained">see blogs</Button></Link>
                         <Button variant="contained">sign up</Button>
                     </div>
                 </div>
@@ -19,7 +20,7 @@ const Header = () => {
             <div className={'header--bottom'}>
                 <h3>This project is bootstrapped with GatsbyJS.The content is hosted on Contentful. The build is re-trigger on either a push event on the master branch or a repository dispatch event from Contentful Webhook.</h3>
             </div>
-        </div>
+        </div >
     )
 }
 

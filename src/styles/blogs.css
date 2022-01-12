@@ -1,0 +1,32 @@
+.blogsContainer {
+  width: 100%;
+}
+
+.blogsContainer--blogs {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+  align-items: center;
+  margin: 2rem 0;
+  flex-wrap: nowrap;
+}
+
+@media (max-width: 768px) {
+  .blogsContainer--blogs {
+    flex-direction: column-reverse;
+    justify-content: center;
+  }
+}
+
+.blogsContainer h2 {
+  color: #646363;
+  font-weight: 500;
+  text-transform: capitalize;
+  margin-top: 3rem;
+  margin-left: 1.5rem;
+}
+
+.blog--image {
+  height: 200px;
+  width: 100%;
+}
