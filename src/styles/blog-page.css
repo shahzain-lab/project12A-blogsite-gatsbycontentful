@@ -1,0 +1,39 @@
+.blog--page {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 5% 0%;
+}
+
+.blog--page_p {
+  font-size: 1.3rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 500;
+  width: 70%;
+  line-height: 2.5rem;
+  color: #2a2a2a;
+}
+
+.blog--page_h1 {
+  font-size: 3rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 500;
+  color: #464646;
+  text-transform: capitalize;
+}
+
+.blog--page_date {
+  font-size: 15px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 700;
+  color: #696767;
+}
+
+.blog--page_img {
+  height: 40rem;
+  width: 75%;
+  margin: 2rem 0;
+}

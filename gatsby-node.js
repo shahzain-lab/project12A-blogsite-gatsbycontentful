@@ -8,6 +8,14 @@ exports.createPages = async ({actions, graphql}) => {
     edges {
       node {
         id
+        title
+        blogpic {
+          gatsbyImageData(width: 10, formats: AUTO)
+        }
+        description {
+          raw
+        }
+        updates(formatString: "DD MM YYYY")
       }
     }
   }
@@ -15,10 +23,10 @@ exports.createPages = async ({actions, graphql}) => {
 `);
 
   data?.allContentfulBlogs?.edges?.forEach(({node}) => {
-      const slug = node.id;
+    const slug = node.title.split(' ').join('-')
       actions.createPage({
           path: `/blogs/${slug}`,
-          component: require.resolve("./src/template/BlogPost.js"),
+          component: require.resolve("./src/template/BlogPost.tsx"),
           context: node
       })
   })
