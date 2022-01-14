@@ -24,7 +24,7 @@ const Signup: React.FC<Props> = ({ handleClose }) => {
                 email,
                 password
             )
-            alert('acount has been created successfully' + results.user.email)
+            alert('account has been created successfully ' + results.user.email)
             handleClose()
         } catch (err) {
             alert(err.message)

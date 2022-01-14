@@ -13,7 +13,7 @@ const Login: React.FC<Props> = ({ handleClose }) => {
 
     const handleSubmit = async () => {
         if (!email || !password) {
-            alert('Please fill the fields')
+            alert('Please fill the requirements')
             return;
         }
         try {
@@ -22,7 +22,7 @@ const Login: React.FC<Props> = ({ handleClose }) => {
                 email,
                 password
             )
-            alert('welcome back' + results.user.email)
+            alert('welcome back ' + results.user.email)
             handleClose()
         } catch (err) {
             alert(err.message)
