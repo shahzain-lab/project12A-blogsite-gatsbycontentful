@@ -1,12 +1,14 @@
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
-import React from 'react';
+import React, { useContext } from 'react';
 import '../styles/blog-page.css'
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { renderShortText } from '../utils/utils';
-import { Button } from '@mui/material';
-
+import Auth from '../auth/Auth';
+import { UserContext } from '../context/userContext';
 
 const BlogPost = ({ pageContext }) => {
+    const { userState } = useContext(UserContext)
+    console.log(userState)
     return (
         <div className={'blog--page'}>
             <div>
@@ -19,10 +21,13 @@ const BlogPost = ({ pageContext }) => {
                 className={'blog--page_img'}
             />
             <p className={'blog--page_p'}>
-                {renderShortText(pageContext.description.raw)}
-                <span className={'blog--page_shortText'}>....</span>
+                {userState ?
+                    renderRichText(pageContext.description) :
+                    <p>{renderShortText(pageContext.description.raw)}....</p>
+                }
+
             </p>
-            <Button variant="contained" style={{ marginTop: '1rem' }}>Sign in to learn more</Button>
+            {!userState && <Auth />}
         </div>
     )
 }

@@ -2,6 +2,7 @@ import React from 'react'
 import '../styles/header.css';
 import Button from '@mui/material/Button';
 import { Link } from 'gatsby';
+import Auth from '../auth/Auth';
 
 
 const Header = () => {
@@ -12,8 +13,8 @@ const Header = () => {
                     <h1>The gatsby static blog site</h1>
                     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fuga, cum?</p>
                     <div className={'header--content_btns'}>
-                        <Link to='/blogs'><Button variant="contained">see blogs</Button></Link>
-                        <Button variant="contained">sign up</Button>
+                        <Link to='/blogs/'><Button variant="contained">see blogs</Button></Link>
+                        <Auth />
                     </div>
                 </div>
             </div>

@@ -4,3 +4,5 @@ export const renderShortText = (str: string) => {
     console.log(shortText);
     return shortText
 }
+
+export const userState = (user: boolean) => user;

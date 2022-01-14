@@ -4,17 +4,37 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import Badge from '@mui/material/Badge';
-import AccountCircle from '@mui/icons-material/AccountCircle';
-import MailIcon from '@mui/icons-material/Mail';
-import NotificationsIcon from '@mui/icons-material/Notifications';
+import { Link } from 'gatsby';
+import Auth from '../auth/Auth';
+import { onAuthStateChanged, signOut } from 'firebase/auth';
+import { auth } from '../../firebase';
+import { Avatar, Button } from '@mui/material';
+import { UserContext } from '../context/userContext';
 
 const Appbar = () => {
+    const [user, setUser] = React.useState(null);
+    const { setUserState } = React.useContext(UserContext)
 
+    React.useEffect(() => {
+        onAuthStateChanged(auth, user => {
+            if (user) {
+                setUser(user)
+                setUserState(true)
+            } else {
+                setUser(null)
+                setUserState(false)
+            }
+        })
+
+    }, [])
+    const handleLogout = () => {
+        signOut(auth)
+        alert('Successfully Logout')
+    }
 
     return (
         <AppBar position="static">
-            <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
+            <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
 
                 <Typography
                     variant="h6"
@@ -25,28 +45,20 @@ const Appbar = () => {
                     MUI
                 </Typography>
 
-                <Box sx={{ display: { md: 'flex' } }}>
-                    <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-                        <Badge badgeContent={4} color="error">
-                            <MailIcon />
-                        </Badge>
-                    </IconButton>
-                    <IconButton
-                        size="large"
-                        aria-label="show 17 new notifications"
-                        color="inherit"
-                    >
-                        <Badge badgeContent={17} color="error">
-                            <NotificationsIcon />
-                        </Badge>
-                    </IconButton>
+                <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                    <Link to="/blogs/"><Typography variant='h6' sx={{ fontWeight: 'bold', color: 'white' }}>Blogs</Typography> </Link>
+
+                    {user ?
+                        <Button sx={{ marginX: '2rem' }} onClick={handleLogout} variant="contained">Logout</Button>
+                        : <Auth />}
+
                     <IconButton
                         size="large"
                         edge="end"
                         aria-label="account of current user"
                         color="inherit"
                     >
-                        <AccountCircle />
+                        {user ? <Avatar src={user.photoURL} /> : null}
                     </IconButton>
                 </Box>
 
